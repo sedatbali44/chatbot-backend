@@ -17,6 +17,9 @@ export class Product {
   @Column()
   userId: string;
 
+  @Column()
+  category: string;
+
   @Column({ type: 'date', default: () => new Date() })
   createdAt: Date;
 
