@@ -30,11 +30,8 @@
 
 ```bash
 $ npm install
-$ docker-compose up --build http://localhost:3000/api  - swagger
-```
-
-```swagger
-$ http://localhost:3000/api
+$ docker-compose up --build
+$ http://localhost:3000/api  - swagger
 ```
 
 ## Running the app
