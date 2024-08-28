@@ -18,10 +18,11 @@ import {
 } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { BypassAuth } from '../auth/bypass-auth.decorator';
+import { ActiveUser } from '../auth/active-user.decorator';
+import { User } from '../user/user.entity';
 
 @ApiTags('products')
 @Controller('products')
-//@UseGuards(JwtAuthGuard)
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
@@ -33,8 +34,11 @@ export class ProductController {
     type: Product,
   })
   @ApiBody({ type: Product })
-  async create(@Body() product: Product): Promise<Product> {
-    return this.productService.create(product);
+  async create(
+    @Body() product: Product,
+    @ActiveUser() user: User,
+  ): Promise<Product> {
+    return this.productService.create(product, user);
   }
 
   @Get()
