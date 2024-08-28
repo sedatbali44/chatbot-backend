@@ -16,7 +16,6 @@ import {
   ApiParam,
   ApiBody,
 } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { BypassAuth } from '../auth/bypass-auth.decorator';
 import { ActiveUser } from '../auth/active-user.decorator';
 import { User } from '../user/user.entity';
