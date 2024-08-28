@@ -1,21 +1,27 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Product } from './product.entity';
 import { ActiveUser } from './../auth/active-user.decorator';
 import { User } from '../user/user.entity';
+import { UserService } from '../user/user.service';
+import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class ProductService {
   constructor(
     @InjectRepository(Product)
     private readonly productRepository: Repository<Product>,
+
+    @Inject(UserService)
+    private readonly usersService: UserService,
   ) {}
 
   async create(product: Product, user: User): Promise<Product> {
+    const activeUser = await this.usersService.findByEmail(user?.email);
     product.createdAt = new Date();
     product.updatedAt = new Date();
-    //product.userId = userId;
+    product.userId = activeUser.id.toString();
     console.log('user:', user);
     return this.productRepository.save(product);
   }

@@ -4,9 +4,10 @@ import { ProductService } from './product.service';
 import { ProductController } from './product.controller';
 import { Product } from './product.entity';
 import { JwtService } from '@nestjs/jwt';
+import { UserModule } from '../user/user.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Product])],
+  imports: [TypeOrmModule.forFeature([Product]), UserModule],
   providers: [ProductService, JwtService],
   controllers: [ProductController],
 })
