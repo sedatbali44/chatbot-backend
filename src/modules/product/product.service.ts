@@ -2,10 +2,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Product } from './product.entity';
-import { ActiveUser } from './../auth/active-user.decorator';
 import { User } from '../user/user.entity';
 import { UserService } from '../user/user.service';
-import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class ProductService {
