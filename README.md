@@ -55,7 +55,6 @@ $ npm run start:prod
 "description": "This is a test product.",
 "category":"laptop",
 "price": 199.99,
-"userId": "user1234",
 "createdAt": "2024-08-27T19:52:23.057Z",
 "updatedAt": "2024-08-27T19:52:23.057Z"
 }
