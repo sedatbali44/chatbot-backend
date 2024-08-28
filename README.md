@@ -48,7 +48,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-product request body :
+## product request body :
 {
 "name": "monster",
 "description": "This is a test product.",
@@ -59,7 +59,7 @@ product request body :
 "updatedAt": "2024-08-27T19:52:23.057Z"
 }
 
-user request body :
+## user request body :
 {
 "name": "sedat",
 "lastName": "bali",
