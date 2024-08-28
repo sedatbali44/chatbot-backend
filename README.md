@@ -31,7 +31,6 @@
 ```bash
 $ npm install
 $ docker-compose up --build
-$ http://localhost:3000/api  - swagger
 ```
 
 ## Running the app
@@ -47,7 +46,9 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
-
+## swagger
+$ http://localhost:3000/api 
+$ 
 ## product request body :
 
 {
