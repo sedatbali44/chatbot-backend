@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Put,
-  Body,
-  Param,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Get, Post, Put, Body, Param } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { Product } from './product.entity';
 import {
@@ -16,7 +8,6 @@ import {
   ApiParam,
   ApiBody,
 } from '@nestjs/swagger';
-import { BypassAuth } from '../auth/bypass-auth.decorator';
 import { ActiveUser } from '../auth/active-user.decorator';
 import { User } from '../user/user.entity';
 
@@ -41,7 +32,6 @@ export class ProductController {
   }
 
   @Get()
-  @BypassAuth()
   @ApiOperation({ summary: 'Get all products' })
   @ApiResponse({
     status: 200,
