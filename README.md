@@ -49,6 +49,7 @@ $ npm run start:prod
 ```
 
 ## product request body :
+
 {
 "name": "monster",
 "description": "This is a test product.",
@@ -60,21 +61,31 @@ $ npm run start:prod
 }
 
 ## user request body :
+
 {
 "name": "sedat",
 "lastName": "bali",
 "email": "sedatbali44@gmail.com",
 "password": "password"
 }
+
 ##
-User Registration: POST http://localhost:3000/users/register
-User Login: POST http://localhost:3000/users/login
-Get User Profile: GET http://localhost:3000/users/profile (Requires JWT token in the Authorization header)
-Create Product: POST http://localhost:3000/products (Requires JWT token)
-Get All Products: GET http://localhost:3000/products
-Get Product by ID: GET http://localhost:3000/products/{productId}
-Update Product: PUT http://localhost:3000/products/{productId}
-Get Products by User: GET http://localhost:3000/products/user/{userId}
+
+## User Registration: POST http://localhost:3000/users/register
+
+## User Login: POST http://localhost:3000/users/login
+
+## Get User Profile: GET http://localhost:3000/users/profile (Requires JWT token in the Authorization header)
+
+## Create Product: POST http://localhost:3000/products (Requires JWT token)
+
+## Get All Products: GET http://localhost:3000/products
+
+## Get Product by ID: GET http://localhost:3000/products/{productId}
+
+## Update Product: PUT http://localhost:3000/products/{productId}
+
+## Get Products by User: GET http://localhost:3000/products/user/{userId}
 
 ## Test
 
