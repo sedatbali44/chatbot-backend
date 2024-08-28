@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Put, Body, Param } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Body,
+  Param,
+  UseGuards,
+} from '@nestjs/common';
 import { ProductService } from './product.service';
 import { Product } from './product.entity';
 import {
@@ -8,9 +16,12 @@ import {
   ApiParam,
   ApiBody,
 } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { BypassAuth } from '../auth/bypass-auth.decorator';
 
 @ApiTags('products')
 @Controller('products')
+//@UseGuards(JwtAuthGuard)
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
@@ -27,6 +38,7 @@ export class ProductController {
   }
 
   @Get()
+  @BypassAuth()
   @ApiOperation({ summary: 'Get all products' })
   @ApiResponse({
     status: 200,

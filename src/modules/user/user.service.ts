@@ -44,4 +44,13 @@ export class UserService {
   async findByEmail(email: string): Promise<User | null> {
     return this.userRepository.findOne({ where: { email } });
   }
+
+  async validateUser(email: string, pass: string): Promise<User | null> {
+    const user = await this.userRepository.findOne({ where: { email } });
+    if (!user) return null;
+
+    const isMatch = await bcrypt.compare(pass, user.password);
+    if (isMatch) return user;
+    return null;
+  }
 }
