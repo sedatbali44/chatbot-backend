@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
+import { ObjectId } from 'mongodb';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -26,7 +27,12 @@ export class UserService {
   }
 
   async findOne(id: string): Promise<User> {
-    return this.userRepository.findOneById(id);
+    const objectId = new ObjectId(id);
+    const user = await this.userRepository.findOne({ where: { id: objectId } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+    return user;
   }
 
   async update(userId: string, user: User): Promise<User> {
