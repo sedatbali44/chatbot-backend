@@ -66,7 +66,7 @@ $ npm run start:prod
 "email": "sedatbali44@gmail.com",
 "password": "password"
 }
-
+##
 User Registration: POST http://localhost:3000/users/register
 User Login: POST http://localhost:3000/users/login
 Get User Profile: GET http://localhost:3000/users/profile (Requires JWT token in the Authorization header)
