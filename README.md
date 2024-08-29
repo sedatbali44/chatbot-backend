@@ -47,7 +47,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 ## swagger
-$ http://localhost:3000/api 
+ http://localhost:3000/api 
 
 ## product request body :
 
