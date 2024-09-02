@@ -17,8 +17,9 @@ export class ProductService {
 
   async create(product: Product, user: User): Promise<Product> {
     const activeUser = await this.usersService.findByEmail(user?.email);
-    product.createdAt = new Date();
-    product.updatedAt = new Date();
+    const currentDate = new Date();
+    product.createdAt = currentDate;
+    product.updatedAt = currentDate;
     product.userId = activeUser.id.toString();
     console.log('user:', user);
     return this.productRepository.save(product);
